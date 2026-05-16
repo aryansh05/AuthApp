@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.authapp.backend.dtos.UserDto;
 import com.authapp.backend.services.UserService;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/v1/users")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;

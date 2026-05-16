@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.authapp.backend.dtos.UserDto;
 import com.authapp.backend.entities.User;
@@ -13,7 +14,6 @@ import com.authapp.backend.helpers.UserHelper;
 import com.authapp.backend.repositories.UserRepository;
 import com.authapp.backend.services.UserService;
 
-import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -72,7 +72,6 @@ public class UserServiceImpl implements UserService{
         if(userDto.getEnable() != null) {
             existingUser.setEnable(userDto.getEnable());
         }
-        
         
         return modelMapper.map(existingUser, UserDto.class);
 
