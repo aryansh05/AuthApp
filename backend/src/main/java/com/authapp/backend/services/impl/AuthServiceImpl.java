@@ -16,12 +16,9 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public UserDto registerUser(UserDto userDto) {
-        
         UserDto registeredUser = userService.createUser(userDto);
 
         return registeredUser;
-
     }
-
     
 }
