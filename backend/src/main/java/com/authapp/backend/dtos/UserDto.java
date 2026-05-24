@@ -27,7 +27,6 @@ public class UserDto {
     private String password;
     private String image;
     
-    
     private Boolean enable;
 
     private Instant createdAt;
