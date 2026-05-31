@@ -29,3 +29,4 @@ security:
     cookie-secure: ${JWT_COOKIE_SECURE}
     cookie-http-only: ${JWT_COOKIE_HTTP_ONLY}
     cookie-same-site: ${JWT_COOKIE_SAME_SITE}
+    cookie-domain: ${JWT_COOKIE_DOMAIN}
