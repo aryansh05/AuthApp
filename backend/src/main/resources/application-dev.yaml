@@ -55,3 +55,27 @@ app:
     frontend:
       success-redirect: ${APP_AUTH_FRONTEND_SUCCESS_REDIRECT}
       failure-redirect: ${APP_AUTH_FRONTEND_FAILURE_REDIRECT}
+
+springdoc:
+  swagger-ui:
+    operations-sorter: alpha
+  writer-with-default-pretty-printer: true
+
+  openapi:
+    info:
+      title: "AuthApp API Documentation by ${CONTACT_NAME}"
+      version: "@project.version@"
+      description: "AuthApp - A user authentication and authorization system"
+      summary: "Plug-and-play authentication and authorization API for Java applications"
+      contact:
+        name: "${CONTACT_NAME}"
+        url: "${CONTACT_URL}"
+        email: "${CONTACT_EMAIL}"
+      
+    components:
+      securitySchemes:
+        bearerAuth:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
+          description: "Enter your JWT Access Token inside the input text field."

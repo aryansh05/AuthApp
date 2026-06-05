@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.authapp.backend.dtos.UserDto;
 import com.authapp.backend.services.UserService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 
+@SecurityRequirement(name = "bearerAuth")
 @RestController
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
