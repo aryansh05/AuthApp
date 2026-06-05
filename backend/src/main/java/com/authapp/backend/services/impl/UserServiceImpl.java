@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,7 @@ public class UserServiceImpl implements UserService{
 
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
+    private final PasswordEncoder passwordEncoder;
     
     @Override
     @Transactional
@@ -57,13 +59,16 @@ public class UserServiceImpl implements UserService{
             existingUser.setName(userDto.getName());
         }
         if(userDto.getPassword() != null) {
-            existingUser.setPassword(userDto.getPassword());
+            existingUser.setPassword(passwordEncoder.encode(userDto.getPassword()));
         }
         if(userDto.getImage() != null) {
             existingUser.setImage(userDto.getImage());
         }
         if(userDto.getProvider() != null) {
             existingUser.setProvider(userDto.getProvider());
+        }
+        if(userDto.getProviderId() != null) {
+            existingUser.setProviderId(userDto.getProviderId());
         }
         if(userDto.getEnable() != null) {
             existingUser.setEnable(userDto.getEnable());

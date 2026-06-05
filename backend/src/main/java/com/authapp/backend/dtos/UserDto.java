@@ -33,6 +33,7 @@ public class UserDto {
     private Instant updatedAt;
 
     private Provider provider;
+    private String providerId;
 
     private Set<RoleDto> roles;   
     
