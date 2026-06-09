@@ -1,0 +1,81 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/authdb
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+              - email
+              - profile
+              - openid
+          
+          github:
+            client-id: ${GITHUB_CLIENT_ID}
+            client-secret: ${GITHUB_CLIENT_SECRET}
+            scope:
+              - user:email
+              - read:user
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+security:
+  jwt:
+    secret: ${JWT_SECRET}
+    issuer: ${JWT_ISSUER}
+    access-ttl-seconds: ${JWT_ACCESS_TTL_SECONDS}
+    refresh-ttl-seconds: ${JWT_REFRESH_TTL_SECONDS}
+    refresh-token-cookie-name: ${JWT_REFRESH_COOKIE_NAME}
+    cookie-secure: ${JWT_COOKIE_SECURE}
+    cookie-http-only: ${JWT_COOKIE_HTTP_ONLY}
+    cookie-same-site: ${JWT_COOKIE_SAME_SITE}
+    cookie-domain: ${JWT_COOKIE_DOMAIN}
+
+app:
+  auth:
+    frontend:
+      success-redirect: ${APP_AUTH_FRONTEND_SUCCESS_REDIRECT}
+      failure-redirect: ${APP_AUTH_FRONTEND_FAILURE_REDIRECT}
+
+springdoc:
+  swagger-ui:
+    operations-sorter: alpha
+  writer-with-default-pretty-printer: true
+
+  openapi:
+    info:
+      title: "AuthApp API Documentation by ${CONTACT_NAME}"
+      version: "@project.version@"
+      description: "AuthApp - A user authentication and authorization system"
+      summary: "Plug-and-play authentication and authorization API for Java applications"
+      contact:
+        name: "${CONTACT_NAME}"
+        url: "${CONTACT_URL}"
+        email: "${CONTACT_EMAIL}"
+      
+    components:
+      securitySchemes:
+        bearerAuth:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
+          description: "Enter your JWT Access Token inside the input text field."
