@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function Toggle() {
+function useThemeToggle() {
   const [isDark, setIsDark] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("theme") === "dark";
@@ -25,4 +25,4 @@ function Toggle() {
 }
 
 
-export default Toggle;
+export default useThemeToggle;

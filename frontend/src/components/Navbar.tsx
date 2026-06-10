@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 import { Button } from "./ui/button";
-import Toggle from "../logic/Toggle";
 import { Moon, Sun } from "lucide-react";
+import useThemeToggle from "@/logic/useThemeToggle";
 
 function Navbar() {
 
-  const { isDark, toggleTheme } = Toggle();
+  const { isDark, toggleTheme } = useThemeToggle();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/50 backdrop-blur-md shadow-md">

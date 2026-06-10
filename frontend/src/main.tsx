@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import RootLayout from "./pages/RootLayout";
+import UserLayout from "./pages/users/UserLayout";
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/dashboard" element={<UserLayout />} />
       </Route>
     </Routes>
   </BrowserRouter>
