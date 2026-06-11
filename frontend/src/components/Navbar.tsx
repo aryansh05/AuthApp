@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 import { Button } from "./ui/button";
 import { Moon, Sun } from "lucide-react";
-import useThemeToggle from "@/logic/useThemeToggle";
+import useNavbar from "@/logic/useNavbar";
 
 function Navbar() {
 
-  const { isDark, toggleTheme } = useThemeToggle();
+  const { isDark, toggleTheme, checkLogin, user, logout } = useNavbar();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/50 backdrop-blur-md shadow-md">
@@ -22,15 +22,43 @@ function Navbar() {
             AuthApp
           </Link>
         </div>
-        <div className="flex flex-row items-center gap-4">
+        <div className="flex flex-row items-center justify-center gap-4">
+          {
+            checkLogin() ?
+            (
+            <div className="flex flex-row items-center justify-center gap-4">
             <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="h-10 w-10 rounded-xl text-muted-foreground hover:text-foreground"
-              aria-label="Toggle theme"
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+            className="h-10 w-10 rounded-xl text-muted-foreground hover:text-foreground"
+            aria-label="Toggle theme"
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </Button>
+            <Link to="#!">
+              {user?.name}
+            </Link>
+              <Button onClick={
+                () => {
+                  logout();
+                }
+              } size="lg" variant="outline">
+                Logout
+              </Button>
+            </div>
+            ) 
+            :
+            (
+            <div className="flex flex-row items-center justify-center gap-4">
+            <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+            className="h-10 w-10 rounded-xl text-muted-foreground hover:text-foreground"
+            aria-label="Toggle theme"
+            >
+            {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
             <Link to="/login">
               <Button size="lg" variant="outline">
@@ -43,6 +71,10 @@ function Navbar() {
                 Signup
               </Button>
             </Link>
+            </div>
+            )
+
+          }
         </div>
       </div>
     </header>

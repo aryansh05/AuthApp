@@ -1,8 +1,8 @@
-import type RegisterData from "@/models/RegiserData";
+import type RegisterData from "@/models/regiserData";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-hot-toast";
-import { registerUser } from "@/services/AuthService";
+import { registerUser } from "@/services/authService";
 
 function useSignup() {
     const [data, setData] = useState<RegisterData>({

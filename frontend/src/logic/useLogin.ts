@@ -1,8 +1,8 @@
-import type LoginData from "@/models/LoginData";
-import { loginUser } from "@/services/AuthService";
+import type LoginData from "@/models/loginData";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import { useAuth } from "@/auth/store"
 
 function useLogin() {
     const[data, setData] = useState<LoginData>({
@@ -16,6 +16,7 @@ function useLogin() {
     setShowPassword((prev) => !prev);
     };
     const navigate = useNavigate();
+    const login = useAuth((state) => state.login);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setData((value) => ({
@@ -38,9 +39,8 @@ function useLogin() {
 
     try {
       setLoading(true);
-      const userInfo = await loginUser(data);
+      await login(data);      
       toast.success("Login success");
-      console.log(userInfo)
       navigate("/dashboard");
     } catch (error: any) {
       console.log(error);
