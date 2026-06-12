@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import useUserProfile from "@/logic/useUserProfile";
+import useUserProfile, { formatRoles } from "@/logic/useUserProfile";
 import type { InfoRowProps } from "@/models/infoRowProps";
 import toast from "react-hot-toast";
 
@@ -83,6 +83,11 @@ function UserProfile() {
               <InfoRow
                 label="User ID"
                 value={user?.id || "N/A"}
+              />
+
+              <InfoRow
+                label="User Role"
+                value={formatRoles(user?.roles)}
               />
             </div>
           </div>

@@ -1,12 +1,14 @@
+import type Roles from "./roles";
+
 export default interface User{
 
     id: string;
     email: string;
     name?: string;
-    enabled: boolean;
+    enable: boolean;
     image?: string;
     updatedAt?: string;
     createdAt?: string;
     provider: string;
-    
+    roles?: Roles[]
 }
