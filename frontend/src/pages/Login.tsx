@@ -1,3 +1,4 @@
+import OAuth2Buttons from "@/components/OAuth2Buttons";
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,8 +8,6 @@ import { Spinner } from "@/components/ui/spinner";
 import useLogin from "@/logic/useLogin";
 import { Eye, EyeOff, LockKeyhole, Mail } from "lucide-react";
 import { ErrorIcon } from "react-hot-toast";
-import { FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router";
 
 function Login() {
@@ -103,19 +102,8 @@ function Login() {
             <span className="shrink mx-4 text-xs uppercase text-muted-foreground tracking-wider">Or</span>
             <div className="grow border-t border-border"></div>
           </div>
+          <OAuth2Buttons />
           <div className="flex flex-col items-center w-full gap-4 py-2">
-            <Link to="/google" className="w-full">
-              <Button size="lg" variant="outline" className="w-full h-11 rounded-full">
-                <FcGoogle />
-                <span>Continue with Google</span>
-              </Button>
-            </Link>
-            <Link to="/github" className="w-full">
-              <Button  size="lg" variant="outline" className="w-full h-11 rounded-full">
-                <FaGithub />
-                <span>Continue with Github</span>
-              </Button>
-            </Link>
             <p className="text-sm text-muted-foreground text-right mt-2">
               Don't have an account?{" "}
               <Link to="/signup" className="text-primary hover:underline font-medium">

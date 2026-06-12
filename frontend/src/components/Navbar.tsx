@@ -5,7 +5,7 @@ import useNavbar from "@/logic/useNavbar";
 
 function Navbar() {
 
-  const { isDark, toggleTheme, checkLogin, user, logout } = useNavbar();
+  const { isDark, toggleTheme, checkLogin, user, logout, navigate } = useNavbar();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/50 backdrop-blur-md shadow-md">
@@ -36,12 +36,13 @@ function Navbar() {
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
-            <Link to="#!">
+            <Link to="/dashboard/profile" className="text-sm tracking-tight">
               {user?.name}
             </Link>
               <Button onClick={
                 () => {
                   logout();
+                  navigate("/login");
                 }
               } size="lg" variant="outline">
                 Logout

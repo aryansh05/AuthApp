@@ -3,13 +3,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router";
-import { FcGoogle } from "react-icons/fc"
-import { FaGithub } from "react-icons/fa"
 import { Mail, User, LockKeyhole, EyeOff, Eye } from "lucide-react";
 import useSignup from "@/logic/useSignup";
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { Spinner } from "@/components/ui/spinner";
 import { ErrorIcon } from "react-hot-toast";
+import OAuth2Buttons from "@/components/OAuth2Buttons";
 
 function Signup() {
 
@@ -119,19 +118,8 @@ function Signup() {
             <span className="shrink mx-4 text-xs uppercase text-muted-foreground tracking-wider">Or</span>
             <div className="grow border-t border-border"></div>
           </div>
+          <OAuth2Buttons />
           <div className="flex flex-col items-center w-full gap-4 py-2">
-            <Link to="/google" className="w-full">
-              <Button size="lg" variant="outline" className="w-full h-11 rounded-full">
-                <FcGoogle />
-                <span>Continue with Google</span>
-              </Button>
-            </Link>
-            <Link to="/github" className="w-full">
-              <Button  size="lg" variant="outline" className="w-full h-11 rounded-full">
-                <FaGithub />
-                <span>Continue with Github</span>
-              </Button>
-            </Link>
             <p className="text-sm text-muted-foreground text-center mt-4">
               Already have an account?{" "}
               <Link to="/login" className="text-primary hover:underline font-medium">

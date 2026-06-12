@@ -1,5 +1,6 @@
 import { useAuth } from "@/auth/store";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
 function useNavbar() {
   const [isDark, setIsDark] = useState<boolean>(() => {
@@ -12,6 +13,7 @@ function useNavbar() {
   const checkLogin = useAuth(state => state.checkLogin);
   const user = useAuth(state => state.user);
   const logout = useAuth(state => state.logout);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -26,7 +28,7 @@ function useNavbar() {
 
   const toggleTheme = () => setIsDark((prev) => !prev);
 
-  return { isDark, toggleTheme, checkLogin, user, logout };
+  return { isDark, toggleTheme, checkLogin, user, logout, navigate };
 }
 
 

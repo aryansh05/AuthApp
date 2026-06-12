@@ -1,6 +1,6 @@
 import { Link } from "react-router";
-import { Button } from "../ui/button";
-import { Card, CardContent } from "../ui/card";
+import { Button } from "../components/ui/button";
+import { Card, CardContent } from "../components/ui/card";
 import {Shield, Lock, Key} from "lucide-react";
 
 function Home() {
@@ -25,11 +25,16 @@ function Home() {
                                 Get Started
                             </Button>
                         </Link>
-                        <Link to={import.meta.env.VITE_BACKEND_API_DOCS_URL} target="_blank" rel="noopener noreferrer" className="w-auto" >
-                            <Button size="lg" variant="outline">
-                                API Doc
-                            </Button>
-                        </Link>
+                        <a 
+                        href={import.meta.env.VITE_BACKEND_API_DOCS_URL} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="w-auto"
+                        >
+                        <Button size="lg" variant="outline">
+                            API Doc
+                        </Button>
+                        </a>
                     </div>
                 </section>
 
