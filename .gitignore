@@ -1,0 +1,130 @@
+# =========================
+# OS FILES
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE / EDITOR
+# =========================
+.vscode/
+.idea/
+*.iml
+
+# =========================
+# LOG FILES
+# =========================
+*.log
+logs/
+
+# =========================
+# ENV FILES / SECRETS
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# JAVA / SPRING BOOT
+# =========================
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+target/
+
+# Gradle
+.gradle/
+build/
+
+# Spring Boot
+spring.log
+
+# =========================
+# LINTERS & BUNDLER CACHES
+# =========================
+.eslintcache
+.stylelintcache
+.vite/
+
+# =========================
+# NODE / FRONTEND
+# =========================
+node_modules/
+dist/
+build/
+.next/
+out/
+coverage/
+
+# npm / yarn
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# TYPESCRIPT
+# =========================
+*.tsbuildinfo
+
+# =========================
+# TEST OUTPUTS
+# =========================
+test-output/
+reports/
+
+# =========================
+# DATABASE FILES
+# =========================
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================
+# LOCAL DATABASE VOLUMES
+# =========================
+db-data/
+pgdata/
+mysql-data/
+
+# =========================
+# TEMP FILES
+# =========================
+tmp/
+temp/
+
+# =========================
+# CACHE
+# =========================
+.cache/
+.parcel-cache/
+
+# =========================
+# MAC / LINUX HIDDEN FILES
+# =========================
+.AppleDouble
+.LSOverride
+
+# =========================
+# WINDOWS
+# =========================
+Desktop.ini
+
+# =========================
+# FRONTEND ENV
+# =========================
+frontend/.env
+backend/.env
+
+# =========================
+# SPRING DEVTOOLS
+# =========================
+.restart/
+
+# =========================
+# GENERATED FILES
+# =========================
+generated/
