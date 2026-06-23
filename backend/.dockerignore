@@ -1,0 +1,101 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+.dockerignore
+docker-compose.yml
+docker-compose.yaml
+docker-compose.*.yml
+docker-compose.*.yaml
+
+# Maven / Spring Boot
+target/
+build/
+out/
+
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+HELP.md
+
+# Logs
+*.log
+logs/
+hs_err_pid*
+replay_pid*
+
+# Frontend
+node_modules/
+dist/
+.next/
+.nuxt/
+.parcel-cache/
+.cache/
+coverage/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+.vscode/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+*~
+
+# Test reports
+surefire-reports/
+failsafe-reports/
+jacoco/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Secrets
+*.pem
+*.key
+*.crt
+*.p12
+*.jks
+*.keystore
+
+# CI/CD
+.github/
+.gitlab/
