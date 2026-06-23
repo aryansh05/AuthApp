@@ -30,6 +30,6 @@ jobs:
         working-directory: backend
         run: chmod +x mvnw
 
-      - name: Build Application
+      - name: Build Docker Image
         working-directory: backend
-        run: ./mvnw clean package -DskipTests
+        run: docker build -t authapp-backend .
