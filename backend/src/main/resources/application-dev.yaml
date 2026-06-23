@@ -51,6 +51,8 @@ security:
     cookie-domain: ${JWT_COOKIE_DOMAIN}
 
 app:
+  cors:
+    frontend-url: ${APP_FRONTEND_URL}
   auth:
     frontend:
       success-redirect: ${APP_AUTH_FRONTEND_SUCCESS_REDIRECT}

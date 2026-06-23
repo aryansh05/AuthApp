@@ -2,6 +2,7 @@ package com.authapp.backend.services.impl;
 
 import java.time.Instant;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -18,11 +19,14 @@ import org.springframework.stereotype.Service;
 
 import com.authapp.backend.dtos.LoginRequest;
 import com.authapp.backend.dtos.RefreshTokenRequest;
+import com.authapp.backend.dtos.RoleDto;
 import com.authapp.backend.dtos.TokenResponse;
 import com.authapp.backend.dtos.UserDto;
 import com.authapp.backend.entities.RefreshToken;
+import com.authapp.backend.entities.Role;
 import com.authapp.backend.entities.User;
 import com.authapp.backend.repositories.RefreshTokenRepository;
+import com.authapp.backend.repositories.RoleRepository;
 import com.authapp.backend.repositories.UserRepository;
 import com.authapp.backend.security.CookieService;
 import com.authapp.backend.security.JwtService;
@@ -48,10 +52,26 @@ public class AuthServiceImpl implements AuthService {
     private final JwtService jwtService;
     private final ModelMapper modelMapper;
     private final CookieService cookieService;
+    private final RoleRepository roleRepository;
 
     @Override
     public UserDto registerUser(UserDto userDto) {
         userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        Role role = roleRepository
+            .findByName("ROLE_GUEST")
+            .orElseGet(() -> {
+                Role guestRole = new Role();
+                guestRole.setName("ROLE_GUEST");
+                return roleRepository.save(guestRole);
+            });
+
+        if (userDto.getRoles() == null) {
+            userDto.setRoles(new HashSet<>());
+        }
+
+        userDto.getRoles().add(
+        modelMapper.map(role, RoleDto.class)
+        );
         UserDto registeredUser = userService.createUser(userDto);
 
         return registeredUser;
